@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Market App</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Informations</h1>
+
+        <form action="/market" method="get">
+            <input type="text" name="symbol" placeholder="Stock Symbol here (ex: AAPL)" required>
+            <button type="submit">Get Data</button>
+        </form>
+
+        <% if (stockData) { %>
+            <div class="stock-data">
+                <h2>Result for <%= stockData.symbol %> on <%= stockData.date %></h2>
+                
+                <div class="data-item">
+                    <span class="data-item-icon">📈</span>
+                    <span>Open :</span>
+                    <span class="data-item-value"><%= stockData.open %> USD</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-item-icon">⬆️</span>
+                    <span>High :</span>
+                    <span class="data-item-value"><%= stockData.high %> USD</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-item-icon">⬇️</span>
+                    <span>Low :</span>
+                    <span class="data-item-value"><%= stockData.low %> USD</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-item-icon">💼</span>
+                    <span>Close :</span>
+                    <span class="data-item-value"><%= stockData.close %> USD</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-item-icon">📊</span>
+                    <span>Volume :</span>
+                    <span class="data-item-value"><%= stockData.volume %></span>
+                </div>
+            </div>
+        <% } else if (error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+    </div>
+</body>
+</html>
