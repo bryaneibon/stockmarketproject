@@ -56,7 +56,11 @@ API_KEY=your_alpha_vantage_api_key
 
 ### 3. Run the Application
 ```bash
-nodemon app.js
+# See package.json , `scripts` section for more details.
+# Start the project (node app.js)
+npm start
+# Start the projet in dev mode (nodemon app.js)
+npm run dev
 ```
 ### 4. Usage
 Open your web browser and navigate to http://localhost:3000
